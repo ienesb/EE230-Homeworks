@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc, }
+\usepackage{graphicx}
+
+\graphicspath{{images/}}
+
+\title{EE230 Homework-1}
+\author{İsmail Enes Bülbül, Abdullah Emir Göğüsdere}
+\date{March 2022}
+
+\begin{document}
+\maketitle
+    \section*{1.}
+    \subsection*{a)}
+    \begin{math}
+        \Omega = \{ x | x \in N, x > 0 \} 
+    \end{math}
+    \\
+    The sample space consists of natural numbers greater than 0.
+    The number represents number of total flipping before someone wins.
+    For example, 2 represents that Ayşe get tail in the first trial,
+    and Bora get head in his first trial.
+    Any number represents that Ayşe wins if the remainder from the
+    division of the number by 3 is 1, and represents Bora wins if
+    the remainder is 2, and represents Ceyda wins otherwise.
+    \subsection*{b)}
+    \begin{math}
+        A = \{ x | x \in \Omega, x  \% 3 = 1 \} \\
+        B = \{ x | x \in \Omega, x  \% 3 = 2 \} \\
+        A\cup B = \{ x | x \in \Omega, x  \% 3 \neq 0 \} \\
+        (A\cup B)^c = \{ x | x \in \Omega, x  \% 3 = 0 \} \\
+    \end{math}
+    \subsection*{c)}
+    Let the events \(E_k\) be defined as follows:\\
+    \(E_k\): the event for the case that first k-1 trial is tail and kth trial is head.\\
+    Then we can write events A and B in terms of \(E_k\) as follows:\\
+    \begin{math}
+        A = E_1 \cup E_4 \cup E_7 \cup ...\\
+        B = E_2 \cup E_5 \cup E_8 \cup ...\\
+    \end{math}
+    Since these events are disjoint, we can calculate the probabilities as follows:
+    \begin{math}
+        P(A) = P(E_1) + P(E_4) + P(E_7) + ...\\
+        P(B) = P(E_2) + P(E_5) + P(E_8) + ...\\
+    \end{math}
+    The probability of \(E_k\) can be calculated as:\\
+    \begin{math}
+        P(E_k) = (1-p)^{k-1}*p
+    \end{math}
+    
+\end{document}
