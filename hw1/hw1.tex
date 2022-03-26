@@ -1,8 +1,20 @@
 \documentclass{article}
-\usepackage[utf8]{inputenc, }
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage{graphicx}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{epstopdf}
+\usepackage[table]{xcolor}
+% \usepackage{matlab}
 
-\graphicspath{{images/}}
+\sloppy
+\epstopdfsetup{outdir=./}
+\graphicspath{ {./ee230_hw1_2442640_2443075_images/} }
+% \matlabhastoc
 
 \title{EE230 Homework-1}
 \author{İsmail Enes Bülbül, Abdullah Emir Göğüsdere}
@@ -117,4 +129,257 @@
         = 1 - \frac{q}{1-r} = \frac{1 - r - q}{1 - r} = \frac{p}{1 - r}
     \end{math}
     
+
+    % % This LaTeX was auto-generated from MATLAB code.
+    % % To make changes, update the MATLAB code and export to LaTeX again.
+    % \section*{5)}
+    % \label{T_132C85D7}
+    % \matlabtitle{EE230 HW1 MATLAB Question: Parameter Estimation}
+
+    % \begin{par}
+    % \begin{center}
+    % \textit{İsmail Enes Bülbül, Abdullah Emir Göğüsdere}
+    % \end{center}
+    % \end{par}
+
+    % \begin{par}
+    % \begin{center}
+    % \textit{2442630, 2443075}
+    % \end{center}
+    % \end{par}
+
+    % \matlabtableofcontents{Table of Contents}
+    % \label{H_440FC271}
+    % \matlabheading{Task: Estimating the probability of success from Bernoulli trials.}
+
+    % \begin{par}
+    % \begin{flushleft}
+    % The Bernoulli random variable is a mathematical abstraction for a possibly unfair coin toss, expressed as follows:
+    % \end{flushleft}
+    % \end{par}
+
+    % \begin{par}
+    % $$X\in \lbrace 0,1\rbrace ~~~~\textrm{P}(X=1)=p,\,\,\,\textrm{P}(X=0)=1-p,\,\,\,p\in [0,1]$$
+    % \end{par}
+
+    % \begin{par}
+    % \begin{flushleft}
+    % The $X=1$ case is called a \textit{success}, and consequently $X=0$ is called as \textit{failure}. In this work, you will be trying to estimate the probability of success $p$ of a Bernoulli random variable from \texttt{N} independent \& identically distributed (iid.) samples. 
+    % \end{flushleft}
+    % \end{par}
+
+
+    % \label{H_A0F6F3AC}
+    % \matlabheadingtwo{Part I. Sampling}
+
+    % \begin{par}
+    % \begin{flushleft}
+    % You will begin by using \texttt{randsample()} to take independent identically distributed (iid.) samples from the random variable described above. Think about discrete probabilistic model given above: What is the sample space, elementary events, and the assigned probabilities to these elementary events? How do they correspond to the arguments of \texttt{randsample()}?
+    % \end{flushleft}
+    % \end{par}
+
+    % \begin{itemize}
+    % \setlength{\itemsep}{-1ex}
+    % \item{\begin{flushleft} Assign a variable \texttt{N} for the number of samples, and adjust its value with a numeric slider that ranges from \texttt{10} to \texttt{1000} in steps of \texttt{10}. Have the control run the current section as its value is changing. \end{flushleft}}
+    % \item{\begin{flushleft} Assign a variable \texttt{p} for the probability of success, and use a numeric slider to adjust its value.  Have the control run the current section as its value is changing. \end{flushleft}}
+    % \item{\begin{flushleft} Use the function \texttt{randsample()} to generate \texttt{N} samples with probability of success \texttt{p}. Consult \texttt{help randsample} to figure out how the function works, if you need to.  \end{flushleft}}
+    % \end{itemize}
+
+    % \begin{matlabcode}
+    % clear variables; close all; clc;
+    % N = 1000;
+    % p = 0.7;
+
+    % samples = randsample([0 1],N,true,[1-p p]);
+    % \end{matlabcode}
+
+    % \begin{par}
+    % \begin{flushleft}
+    % Now for some visualization.
+    % \end{flushleft}
+    % \end{par}
+
+    % \begin{itemize}
+    % \setlength{\itemsep}{-1ex}
+    % \item{\begin{flushleft} Use \texttt{histogram()} to plot how many of which outcome has been sampled. Prettify the plot. \end{flushleft}}
+    % \end{itemize}
+
+    % \begin{matlabcode}
+    % figure
+
+    % histogram(samples)
+    % \end{matlabcode}
+    % \begin{center}
+    % \includegraphics[width=\maxwidth{56.196688409433015em}]{figure_0.eps}
+    % \end{center}
+
+
+    % \label{H_25EBD824}
+    % \matlabheadingtwo{Part II. Estimation}
+
+    % \begin{par}
+    % \begin{flushleft}
+    % Now that you have your samples, let's do some parameter estimation. You will try to estimate the probability of success via the most intuitive formula: Number of successes divided by the total number of trials.
+    % \end{flushleft}
+    % \end{par}
+
+    % \begin{itemize}
+    % \setlength{\itemsep}{-1ex}
+    % \item{\begin{flushleft} Use the previously generated samples and apply this formula to estimate the probability of success. \end{flushleft}}
+    % \end{itemize}
+
+    % \begin{matlabcode}
+    % p_est = sum(samples(:) == 1)/N
+    % \end{matlabcode}
+    % \begin{matlaboutput}
+    % p_est = 0.6910
+    % \end{matlaboutput}
+
+    % \begin{par}
+    % \begin{flushleft}
+    % What you code above is called an \textit{estimator}: A function that maps the observed samples to the estimate of the quantitiy in question. You will want to convert your estimator to a stand-alone MATLAB function, so that it may be called when needed.
+    % \end{flushleft}
+    % \end{par}
+
+    % \begin{itemize}
+    % \setlength{\itemsep}{-1ex}
+    % \item{\begin{flushleft} Complete the empty function \texttt{estimator()} in \hyperref[H_9C34D6E2]{Appendix A.1.} and call it once more below to make sure it works. \end{flushleft}}
+    % \end{itemize}
+
+    % \begin{matlabcode}
+    % p_est = estimator(samples)
+    % \end{matlabcode}
+    % \begin{matlaboutput}
+    % p_est = 0.6910
+    % \end{matlaboutput}
+
+
+    % \label{H_4671C279}
+    % \matlabheadingtwo{Part III. Evaluation}
+
+    % \begin{par}
+    % \begin{flushleft}
+    % In this final part, you are asked to evaluate the success of your estimator as a function of number of observations. 
+    % \end{flushleft}
+    % \end{par}
+
+    % \begin{itemize}
+    % \setlength{\itemsep}{-1ex}
+    % \item{\begin{flushleft} Generate a new, "big" data set of \texttt{N = 1000} samples, again with \texttt{p} adjusted with a numeric slider. \end{flushleft}}
+    % \item{\begin{flushleft} Write a \texttt{for} loop to use your estimator with the first \texttt{n} samples \textit{of the dataset you generate in this section} where \texttt{n} varies from \texttt{1} to \texttt{N}, and record the estimator output to a vector. \end{flushleft}}
+    % \item{\begin{flushleft} Plot the estimator output as a function of the number of observed samples. On the same plot, plot a horizontal line that is equal to the value of true \texttt{p}, so that it is easier to compare the estimated value to the true one. \end{flushleft}}
+    % \item{\begin{flushleft} Have the final estimate of \texttt{p} and the true \texttt{p} printed in the title of the plot. This title must adapt to the final estimate and \texttt{p} value as set by the numeric slider.  \end{flushleft}}
+    % \item{\begin{flushleft} Add a button control to rerun this section for a new data set of same size, and observe whether different estimated p vs. nr. of samples used converge to the same final \texttt{p} estimate. \textbf{Bonus:} Plot different realizations of these plot \textit{on the same figure }multiple (5-10 should be plenty). If you do so, you can choose either run's final estimate to show in the title. \end{flushleft}}
+    % \end{itemize}
+
+    % \begin{matlabcode}
+    % f = figure;
+    % f.Position = [0 0 1000 600];
+
+    % p = 0.7;
+    % N = 1000;
+    % data = randsample([0 1],N,true,[1-p p]);
+
+    % p_est_ = ones(1,N);
+
+    % for n = 1:N
+        
+    %     p_est_(n) = estimator(data(1,1:n));
+
+    % end
+
+    % plot(p_est_)
+    % hold on;
+    % plot(p*ones(1,N))
+
+    % xlim([0 1000])
+    % ylim([0 1.1])
+    % legend("pEstimated", "p")
+    % title("Estimated p = " +  p_est_(1,N) + ", True p = " + p)
+    % ylabel("Probability")
+    % xlabel("Samples")
+    % \end{matlabcode}
+    % \begin{center}
+    % \includegraphics[width=\maxwidth{100.35122930255896em}]{figure_1.eps}
+    % \end{center}
+    % \begin{matlabcode}
+    
+    % \end{matlabcode}
+
+
+    % \begin{par}
+    % \begin{flushleft}
+    % \textbf{Bonus:}
+    % \end{flushleft}
+    % \end{par}
+
+    % \begin{matlabcode}
+    % hold off; close all;
+    % f = figure;
+    % f.Position = [0 0 1000 600];
+
+    % numExp = 5;
+    % pEst = string(zeros(1,numExp));
+
+    % for repeat = 1:numExp
+    %     data = randsample([0 1],N,true,[1-p p]);
+        
+    %     p_est_ = ones(1,N);
+        
+    %     for n = 1:N
+            
+    %         p_est_(n) = estimator(data(1,1:n));
+        
+    %     end
+    %     pEst(1,repeat) = "Exp" + ...
+    %     string(repeat) + ": " + string(p_est_(1,N));
+
+    % plot(p_est_)
+    % hold on;
+
+    % end
+
+    % pEst = [string(pEst), "True: " + string(p)];
+
+    % plot(p*ones(1,N))
+    % title(join(pEst,", "))
+    % legend(pEst)
+    % ylabel("Probability")
+    % xlabel("Samples")
+    % hold off;
+    % \end{matlabcode}
+    % \begin{center}
+    % \includegraphics[width=\maxwidth{100.35122930255896em}]{figure_2.eps}
+    % \end{center}
+
+
+    % \begin{itemize}
+    % \setlength{\itemsep}{-1ex}
+    % \item{\begin{flushleft} Comment briefly on the behaviour you observe on the plot you create above. How does your estimator perform? Do the plots vary from run to run? What are the similarities and differences between different runs? \end{flushleft}}
+    % \end{itemize}
+
+    % \begin{par}
+    % \begin{flushleft}
+    % From the above plots, as we increase the portion of the \textbf{data} to be calculated in each loop until it reaches the whole portion, it can be seen that the \textbf{pEstimated} converges to the true \textbf{p}. Therefore, we can say that the \textbf{estimator} performs sufficiently. Moreover, we can see that the plots vary from run to run since the \textbf{randsample()} creates \textbf{N}-sized samples randomly and closely weighted to true \textbf{p}. 
+    % \end{flushleft}
+    % \end{par}
+
+    % \begin{par}
+    % \begin{flushleft}
+    % The difference between runs is that the \textbf{data} sets in each run are created randomly and closely weighted to true p, so the data sets in each run are not the same. Although this is the case, their similarity is that their \textbf{pEstimated} will eventually converge to the true \textbf{p}.
+    % \end{flushleft}
+    % \end{par}
+
+    % \label{H_96AE8304}
+    % \matlabheading{Appendix A. Function Declarations}
+
+    % \label{H_9C34D6E2}
+    % \matlabheadingtwo{A.1. Your Estimator}
+
+    % \begin{matlabcode}
+    % function [p_est] = estimator(samples)
+    %     [p_est] = sum(samples(:) == 1)/length(samples);
+    % end
+    % \end{matlabcode}
+
 \end{document}
