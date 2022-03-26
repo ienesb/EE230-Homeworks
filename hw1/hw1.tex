@@ -45,7 +45,59 @@
     \end{math}
     The probability of \(E_k\) can be calculated as:\\
     \begin{math}
-        P(E_k) = (1-p)^{k-1}*p
+        P(E_k) = (1-p)^{k-1}\cdot 
     \end{math}
+    ...\\
+    \section*{2)}
+    \subsection*{a)}
+    \begin{math}
+        B: A_3 \cap A_5 given A_2
+    \end{math}
+    \subsection*{b)}
+    \begin{math}
+        P(B) = P(A_3 \cup A_5 | A_2) = \frac{P(A_2 \cap (A_3 \cup A_5))}{P(A_2)}
+        = \frac{P((A_2 \cap A_3)\cup(A_2 \cap A_5))}{P(A_2)}\\
+        = \frac{P((A_2 \cap A_3)) + P((A_2 \cap A_5)) - P((A_2 \cap A_3 \cap A_5))}{P(A_2)}\\
+    \end{math}
+         \(A_2 = \{ 2, 4, 6, ..., 100 \}\) has 50 elements\\
+         \(A_2 \cap A_3 = \{ 6, 12, 18, ..., 96 \}\) has 16 elements\\ 
+         \(A_2 \cap A_5 = \{ 10, 20, 30, ..., 100 \}\) has 10 elements\\ 
+         \(A_2 \cap A_3 \cap A_5 = \{ 30, 60, 90 \}\) has 3 elements\\
+    \begin{math}
+        \frac{P((A_2 \cap A_3)) + P((A_2 \cap A_5)) - P((A_2 \cap A_3 \cap A_5))}{P(A_2)} = \frac{0.16 + 0.1 - 0.03}{0.5} = 0.58
+    \end{math}
+    \subsection*{c)}
+    ....
+    \section*{3)}
+    Let the events \(A_k\) and \(B\) be defined as :\\
+    \(A_k\): The event that the family has k children\\
+    \(B\): The event that the chosen child is the youngest one\\
+    \(B'\): The event that the chosen child is the oldest one\\
+    By theorem 2: \\
+    \begin{math}
+        P(B|A_k) = P(B'|A_k) = 1/k\\
+        P(B') = \sum_{k=1}^{4} P(B'|A_k)\cdot P(A_k) = \sum_{k=1}^{4} (1/k)\cdot p_k\\
+        P(B) = \sum_{k=1}^{4} P(B|A_k)\cdot P(A_k) = \sum_{k=1}^{4} (1/k)\cdot p_k\\
+        P(B) = P(B') = 0.25 + 0.45/2 + 0.2/3 + 0.1/4 = 0.56\\
+        P(A_k|B) = \frac{P(B|A_k)\cdot P(A_k)}{P(B)} = \frac{(1/k)\cdot p_k}{0.56}
+    \end{math}
+    \subsection*{a)}
+    \begin{math}
+        P(A_1|B) = \frac{p_k}{0.56k} = 0.25/0.56 = 0.45
+    \end{math}
+    \subsection*{b)}
+    \begin{math}
+        P(A_3|B) = \frac{p_k}{0.56k} = 0.2/(3*0.56) = 0.12
+    \end{math}
+    \subsection*{c)}
+    \(P(B') = 0.56\)
+    \section*{4)}
+    \subsection*{a)}
+    \begin{math}
+        {5 \choose 3} \cdot p^3 \cdot q^2 = 10\cdot p^3 \cdot q^2  
+    \end{math}
+    \subsection*{b)}
+    
+
     
 \end{document}
