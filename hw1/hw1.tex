@@ -97,7 +97,24 @@
         {5 \choose 3} \cdot p^3 \cdot q^2 = 10\cdot p^3 \cdot q^2  
     \end{math}
     \subsection*{b)}
-    
-
+    Let the index of the first outcome \(\omega _q\) be n, 
+    then we should have outcomes \(\omega _p\) or \(\omega _r\)
+    for the indexes between 1 and n-1. We can calculate this probability as:\\
+    \begin{math}
+        \sum_{k=2}^{5} (1-q)^{n-1}\cdot q\\
+    \end{math}
+    But we have to remove the case that all outcomes before nth trial is \(\omega _r\), 
+    so our formula will be:\\
+    \begin{math}
+        \sum_{k=2}^{5} ((1-q)^{n-1} - r^{n-1})\cdot q =
+        q\cdot \sum_{k=1}^{4} ((1-q)^n - r^n)
+    \end{math}
+    \subsection*{c)}
+    We can use the formula with replacing the upper limit
+    of summation with \({\infty}\).\\
+    \begin{math}
+        q\cdot \sum_{k=1}^{\infty} ((1-q)^n - r^n) = q\cdot (\frac{1}{1-(1-q)} - \frac{1}{1-r})
+        = 1 - \frac{q}{1-r} = \frac{1 - r - q}{1 - r} = \frac{p}{1 - r}
+    \end{math}
     
 \end{document}
