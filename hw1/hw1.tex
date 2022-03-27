@@ -61,25 +61,36 @@
     \end{math}
     The probability of \(E_k\) can be calculated as:\\
     \begin{math}
-        P(E_k) = (1-p)^{k-1}\cdot 
+        P(E_k) = (1-p)^{k-1}\cdot p\\
     \end{math}
-    ...\\
+    Then we can calculate \(P(A)\) and \(P(B)\) as:\\
+    \begin{math}
+        P(A) = \sum_{k=1}^{\infty} (1-p)^{3\cdot(k-1)}\cdot p\\
+        = p\cdot(((1-p)^3)^0 + ((1-p)^3)^1 + ((1-p)^3)^2 + ...)
+        = \frac{p}{1-(1-p)^3} = \frac{1}{p^2-3p+3}\\\\
+        P(B) = \sum_{k=1}^{\infty} (1-p)^{3\cdot(k-1)+1}\cdot p\\
+        = p\cdot(1-p)\cdot(((1-p)^3)^0 + ((1-p)^3)^1 + ((1-p)^3)^2 + ...)
+        = \frac{p\cdot(1-p)}{1-(1-p)^3} = \frac{1-p}{p^2-3p+3}
+    \end{math}
     \subsection*{d)}
     Since events A and B are disjoint, by axiom 2, we have \\
     \begin{math}
-        P(A\cup B) = P(A) + P(B) = 4/7 + 2/7 = 6/7 \\
+        P(A\cup B) = P(A) + P(B) = \frac{1}{p^2-3p+3}
+        +\frac{1-p}{p^2-3p+3}
+        =\frac{2-p}{p^2-3p+3} \\\\
     \end{math}
     Since \((A\cup B)\) and\((A\cup B)^c\) are disjoint, 
     and \(\Omega = (A\cup B) + (A\cup B)^c\) we have \\
     \begin{math}
         P((A\cup B)^c) = P(\Omega) - P(A\cup B)\\
     \end{math}
-    By axiom 3, \(P(\Omega) = 1\). Therefore \(P((A\cup B)^c) = 1/7\)
+    By axiom 3, \(P(\Omega) = 1\). Therefore \(P((A\cup B)^c) = \frac{p^2-2p+1}{p^2-3p+3}\)
     \subsection*{e)}
     For A and B: \\
-    \(P(A) + P(B) - 1 = 4/6 + 2/6 - 1 = -1/7\)\\
+    \(P(A) + P(B) - 1 = \frac{2-p}{p^2-3p+3} - 1
+    = \frac{-p^2+2p-1}{p^2-3p+3} = \frac{-(p-1)^2}{(p-3/2)^2+3/4} \leq 0 \,\, \forall p \,\, 0 \leq p \leq 1\)\\
     \(P(A\cap B) = 0\) (events are disjoint)\\
-    \(0 > -1/7\) (equation holds)    \\\\
+    \(0 \geq \frac{-(p-1)^2}{(p-3/2)^2+3/4}\) (equation holds)    \\\\
     For arbitrary two events C and D: \\
     \begin{math}
         P(C\cap D) \geq P(C) + P(D) -1\\
@@ -92,7 +103,7 @@
     \section*{2)}
     \subsection*{a)}
     \begin{math}
-        B: A_3 \cap A_5 given A_2
+        B: A_3 \cap A_5 \,\, given \,\, A_2
     \end{math}
     \subsection*{b)}
     \begin{math}
