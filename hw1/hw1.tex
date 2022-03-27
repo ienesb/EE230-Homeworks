@@ -20,6 +20,7 @@
 % \author{İsmail Enes Bülbül, Abdullah Emir Göğüsdere}
 % \date{March 2022}
 \date{}
+\author{}
 
 \begin{document}
 \maketitle
@@ -119,7 +120,21 @@
         \frac{P((A_2 \cap A_3)) + P((A_2 \cap A_5)) - P((A_2 \cap A_3 \cap A_5))}{P(A_2)} = \frac{0.16 + 0.1 - 0.03}{0.5} = 0.58
     \end{math}
     \subsection*{c)}
-    ....
+    \begin{math}
+        P(A_a \cup A_b | A_2) = \frac{A_2\cap (A_a \cup A_b)}{P(A_2)}
+        = \frac{P(A_2 \cap A_a) + P(A_2 \cap A_b) - P(A_2 \cap A_a \cap A_b)}{P(A_2)}\\
+    \end{math}
+    If we assume that \(a\neq b\), \(a\neq 2\), and \(b\neq 2\); than we have\\
+    \begin{math}
+        P(A_a \cup A_b | A_2)= \frac{P(A_{2a}) + P(A_{2b}) - P(A_{2ab})}{P(A_2)}\\
+    \end{math}
+    To obtain a formula for general case (without any assumption like \(a\neq 2\))
+    we can divide subscripts in the numerator by the greatest common dividor.
+    Therefore our formula will be \\
+    \begin{math}
+        P(A_a \cup A_b | A_2)=
+        \frac{ P(A_{\frac{2a}{\gcd(2,a)}}) + P(A_{\frac{2b}{\gcd(2,b)}}) - P(A_{\frac{2ab}{\gcd(2,a) \cdot \gcd(a,b)}})}{P(A_2)}\\
+    \end{math}
     \section*{3)}
     Let the events \(A_k\) and \(B\) be defined as :\\
     \(A_k\): The event that the family has k children\\
